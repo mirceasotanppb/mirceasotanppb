@@ -1,0 +1,14 @@
+name: Hello
+
+on:
+  issue_comment:
+    types: [ created ]
+
+jobs:
+  build:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/abc')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Abc
+        run: echo "Hello world"
+     
